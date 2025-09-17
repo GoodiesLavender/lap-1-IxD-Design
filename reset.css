@@ -53,6 +53,7 @@ ul:hover li {
 
 #table1:hover #cueball1 {
   animation: straightShot 2s ease-out;
+  animation-fill-mode: forwards;
 }
 
 @keyframes bankShot {
@@ -73,6 +74,7 @@ ul:hover li {
 }
 #table2:hover #cueball2 {
   animation: bankShot 2s ease-out;
+  animation-fill-mode: forwards;
 }
 
 @keyframes eightball {
@@ -90,6 +92,50 @@ ul:hover li {
 }
 #table3:hover #cueball3 {
   animation: eightball 1s ease-out 1s;
+  animation-fill-mode: forwards;
 }
 
 /*******/
+
+@keyframes headlineDrop {
+  0% {
+    font-size: 6em;
+    filter: blur(40px);
+  }
+
+  100% {
+    font-size: 2em;
+    filter: blur(0px);
+  }
+}
+
+h1 {
+  animation: headlineDrop 1s ease-in;
+}
+
+@keyframes subheadSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+h2 {
+  animation: subheadSlide 1s ease-in 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100;
+  }
+}
