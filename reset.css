@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  min-height: 100%;
+}
+body {
+  margin: 1em;
+  font-family: sans-serif;
+}
+
+h2 {
+  font-weight: 100;
+  margin: 1em 0 0.5em 0;
+}
+
+ul:hover li {
+  width: 500px;
+}
+
+#ease {
+  transition: width 2s ease;
+}
+
+#easeIn {
+  transition: width 2s ease-in;
+}
+
+#easeOut {
+  transition: width 2s ease-out;
+}
+
+#easeInOut {
+  transition: width 2s ease-in-out;
+}
+
+#linear {
+  transition: width 2s linear;
+}
+
+@keyframes straightShot {
+  0% {
+    left: 25px;
+  }
+  100% {
+    left: 280px;
+  }
+}
+
+#table1:hover #cueball1 {
+  animation: straightShot 2s ease-out;
+}
+
+@keyframes bankShot {
+  0% {
+    left: 25px;
+  }
+  33% {
+    left: 120px;
+    top: 0px;
+  }
+  66% {
+    left: 240px;
+    top: 90px;
+  }
+  100% {
+    left: 280px;
+  }
+}
+#table2:hover #cueball2 {
+  animation: bankShot 2s ease-out;
+}
+
+@keyframes eightBall {
+  0% {
+    left: 25px;
+  }
+  20% {
+    left: 120px;
+    top: 0px;
+  }
+  40% {
+    left: 240px;
+    top: 90px;
+  }
+  60% {
+    left: 120px;
+    top: 180px;
+  }
+  80% {
+    left: 240px;
+    top: 90px;
+  }
+  100% {
+    left: 280px;
+    top: 90px;
+  }
+}
