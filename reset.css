@@ -40,7 +40,7 @@ ul:hover li {
   transition: width 2s linear;
 }
 
-/*******/
+/***************************************************************************/
 
 @keyframes straightShot {
   0% {
@@ -95,7 +95,7 @@ ul:hover li {
   animation-fill-mode: forwards;
 }
 
-/*******/
+/********************************************************************/
 
 @keyframes headlineDrop {
   0% {
@@ -157,4 +157,23 @@ h2 {
 
 #div {
   opacity: 0;
+}
+
+/***************************************************************************/
+
+input[type="checkbox"] {
+  display: none;
+}
+label {
+  cursor: pointer;
+  padding: 3px;
+  border: 1px solid #a8a8a8;
+}
+
+input[type="checkbox"]:checked ~ #target {
+  background: #ffb101;
+}
+
+target {
+  transition: backgound 1.5s ease;
 }
