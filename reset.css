@@ -159,7 +159,9 @@ h2 {
   opacity: 0;
 }
 
-/***************************************************************************/
+/*****************************************************
+needs work on getting background color change on click
+*****************************************************/
 
 input[type="checkbox"] {
   display: none;
@@ -177,3 +179,16 @@ input[type="checkbox"]:checked ~ #target {
 target {
   transition: backgound 1.5s ease;
 }
+
+#zoom {
+  width: 150px;
+  transform: all 1s ease-in-out;
+}
+
+#zoom:target figure #zoom {
+  width: 400px;
+}
+
+/********************************************************************************
+ needs work on geting image showing on click
+*********************************************************************************/
