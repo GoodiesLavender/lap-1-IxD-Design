@@ -1,3 +1,5 @@
+/***************************excercise 1************************************************/
+
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +42,7 @@ ul:hover li {
   transition: width 2s linear;
 }
 
-/***************************************************************************/
+/***************************excercise 2************************************************/
 
 @keyframes straightShot {
   0% {
@@ -95,7 +97,7 @@ ul:hover li {
   animation-fill-mode: forwards;
 }
 
-/********************************************************************/
+/****************************************Excercise 3 ****************************************/
 
 @keyframes headlineDrop {
   0% {
@@ -140,28 +142,29 @@ h2 {
   }
 }
 
+#div1,
+#div2,
+#div3 {
+  opacity: 0;
+}
+
 #div1 {
-  animation: fadeIn 0.5s linear 0.25s;
-  animation-fill-mode: forwards;
+  animation: fadeIn 0.5s linear 2s forwards;
 }
 
 #div2 {
-  animation: fadeIn 0.5s linear 0.25s;
-  animation-fill-mode: forwards;
+  animation: fadeIn 0.5s linear 2.5s forwards;
 }
 
 #div3 {
-  animation: fadeIn 0.5s linear 0.25s;
-  animation-fill-mode: forwards;
-}
-
-#div {
-  opacity: 0;
+  animation: fadeIn 0.5s linear 3s forwards;
 }
 
 /*****************************************************
 needs work on getting background color change on click
 *****************************************************/
+
+/***************************excercise 5************************************************/
 
 input[type="checkbox"] {
   display: none;
