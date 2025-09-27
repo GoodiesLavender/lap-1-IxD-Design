@@ -171,15 +171,18 @@ input[type="checkbox"] {
 }
 label {
   cursor: pointer;
-  padding: 3px;
+  padding: 6px 12px;
   border: 1px solid #a8a8a8;
+  border-radius: 4px;
+  background: #f4f4f4;
+  transition: backgound 0.3s;
 }
 
 input[type="checkbox"]:checked ~ #target {
   background: #ffb101;
 }
 
-target {
+#target {
   transition: backgound 1.5s ease;
 }
 
@@ -188,7 +191,7 @@ target {
   transform: all 1s ease-in-out;
 }
 
-#zoom:target figure #zoom {
+#zoom:target {
   width: 400px;
 }
 
