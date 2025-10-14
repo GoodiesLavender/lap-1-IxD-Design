@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercise 12: Drag & Drop</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Reset -->
+    <link href="../resources/reset.css" rel="stylesheet" />
+
+    <style>
+      /* ---------- Base Styles ---------- */
+      body {
+        background: linear-gradient(to bottom, #ddd 0%, #777 100%);
+        text-align: center;
+        font-family: sans-serif;
+      }
+
+      figure {
+        background: url("../resources/modelX.png") no-repeat center;
+        background-size: contain;
+        width: 750px;
+        height: 330px;
+        margin: 0 auto 2em;
+        position: relative;
+      }
+
+      figcaption {
+        position: absolute;
+        bottom: 0.5em;
+        width: 100%;
+        font-size: 2em;
+        color: #fff;
+        text-shadow: 0 1px 3px #000;
+      }
+
+      /* ---------- Swatch Container ---------- */
+      ul {
+        background: #989898;
+        padding: 15px 30px 10px;
+        display: inline-block;
+        border-radius: 100px;
+        box-shadow: 3px 3px 8px #222 inset, -1px -1px 0px #fff inset;
+      }
+
+      li {
+        list-style: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 4px #fff inset, -3px -3px 4px #222 inset;
+        display: inline-block;
+        margin: 0 6px;
+        box-sizing: border-box;
+        cursor: grab;
+        background-image: url("../resources/shine.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      /* ---------- Color Swatches ---------- */
+      #Titanium {
+        background-color: #a7a9ac;
+      }
+      #Blue {
+        background-color: #005baa;
+      }
+      #Dolphin {
+        background-color: #5b7b8a;
+      }
+      #Pearl {
+        background-color: #ffffff;
+      }
+      #Black {
+        background-color: #1c1c1c;
+      }
+      #Red {
+        background-color: #c8102e;
+      }
+      #Orange {
+        background-color: #ff6600;
+      }
+
+      /* ✅ CSS Challenge – Add Green Swatch */
+      #Green {
+        background-color: #3cb043;
+      }
+
+      .active {
+        border: 4px solid #fff;
+      }
+
+      /* ---------- SVG Paint Layer ---------- */
+      .paint {
+        fill: #a7a9ac; /* default color (Titanium) */
+        mix-blend-mode: multiply;
+        transition: fill 0.5s ease;
+      }
+    </style>
+
+    <script src="../resources/jquery.min.js"></script>
+    <script src="../resources/jquery-ui.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Exercise 12: Drag & Drop</h1>
+
+    <figure id="car">
+      <!-- SVG overlay (simplified shape for demonstration) -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 330">
+        <path
+          class="paint"
+          d="M25 250 C100 180 650 180 725 250 L725 290 L25 290 Z"
+        />
+      </svg>
+      <figcaption>Titanium</figcaption>
+    </figure>
+
+    <!-- Swatches -->
+    <ul>
+      <li id="Titanium" class="active"></li>
+      <li id="Blue"></li>
+      <li id="Dolphin"></li>
+      <li id="Pearl"></li>
+      <li id="Black"></li>
+      <li id="Red"></li>
+      <li id="Orange"></li>
+      <li id="Green"></li>
+      <!-- ✅ new color -->
+    </ul>
+
+    <!-- Optional sound effect -->
+    <audio id="sound" src="../resources/click.mp3" preload="auto"></audio>
+
+    <script>
+      /* ---------- Variables ---------- */
+      let colorHex = "#a7a9ac"; // Default color (Titanium)
+      let colorName = "Titanium";
+      const sound = document.getElementById("sound");
+
+      // Show default color name on load
+      $("figcaption").text(colorName);
+
+      /* ---------- Make Swatches Draggable ---------- */
+      $("li").draggable({
+        revert: true,
+        revertDuration: 600,
+        opacity: 0.7,
+        start: grab,
+      });
+
+      /* ---------- Make Car Droppable ---------- */
+      $("#car").droppable({
+        drop: repaint,
+      });
+
+      /* ---------- Functions ---------- */
+      function grab(event, ui) {
+        const $swatch = $(this);
+        colorHex = $swatch.css("background-color");
+        colorName = $swatch.attr("id");
+        $("li").removeClass("active");
+        $swatch.addClass("active");
+      }
+
+      function repaint(event, ui) {
+        $(".paint").css("fill", colorHex);
+        $("figcaption").text(colorName);
+        if (sound) sound.play();
+      }
+    </script>
+  </body>
+</html>
