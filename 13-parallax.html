@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Exercise 13 - Parallax</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Reset CSS -->
+    <link href="../resources/reset.css" rel="stylesheet" />
+
+    <style>
+      /* General page setup */
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        overflow-x: hidden;
+      }
+
+      section {
+        position: relative;
+        height: 100vh;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        background: #000;
+      }
+
+      h1 {
+        font-size: 4em;
+        font-weight: normal;
+        margin-top: 42vh;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Section backgrounds */
+      #screen1 {
+        background: #000;
+      }
+
+      #screen2 {
+        background: url("../resources/background-dark-blue.jpg") center center
+          no-repeat;
+        background-size: cover;
+      }
+
+      #screen3 {
+        background: #1d2a48;
+      }
+
+      #screen4 {
+        background: #000;
+        position: relative;
+      }
+
+      /* Parallax blur image */
+      #image {
+        background: url("../resources/background-glass.jpg") center center
+          no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      #screen4 h1 {
+        z-index: 3;
+        position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Screen 1 -->
+    <section id="screen1">
+      <h1 data-start="top:0px; opacity:1;" data-top="top:-300px; opacity:0;">
+        Exercise 13 - Parallax
+      </h1>
+    </section>
+
+    <!-- Screen 2 -->
+    <section id="screen2">
+      <h1>Curtain effect</h1>
+    </section>
+
+    <!-- Screen 3 -->
+    <section id="screen3">
+      <h1
+        data-bottom-top="transform:scale(3);"
+        data-top-bottom="transform:scale(0.2);"
+      >
+        Scaling
+      </h1>
+    </section>
+
+    <!-- Screen 4 -->
+    <section id="screen4">
+      <div
+        id="image"
+        data-200-top="filter:blur(0px);"
+        data-100-top="filter:blur(10px);"
+      ></div>
+      <h1
+        data-anchor-target="#image"
+        data-175-top="filter:blur(5px);"
+        data-75-top="filter:blur(0px);"
+      >
+        Blurring
+      </h1>
+    </section>
+
+    <!-- Skrollr -->
+    <script src="../resources/skrollr.min.js"></script>
+    <script>
+      var s = skrollr.init({
+        mobileCheck: function () {
+          // Disable mobile version behavior for consistent testing
+          return false;
+        },
+      });
+    </script>
+  </body>
+</html>
